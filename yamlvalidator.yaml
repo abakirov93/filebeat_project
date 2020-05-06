@@ -1,0 +1,29 @@
+---
+- name: Filebeat Installation
+  hosts: 52.19.32.80
+  become: true
+  become_method: sudo
+  user: centos
+  tasks:
+  - name: Create repo
+    copy:
+      src: filebeat.repo
+      dest: /etc/yum.repos.d/
+  - name: Install filebeat
+    package:
+      name: filebeat
+      state: installed
+  - name: enable filebeat
+    service:
+      name: filebeat
+      enabled: yes
+      state: started  
+
+    filebeat_package_state: present
+    filebeat_config:
+    filebeat:
+      inputs:
+      - type: log
+        paths:
+          - /var/log/*.log
+          - /var/log/messages

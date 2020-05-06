@@ -1,0 +1,13 @@
+---
+- name: Create ec2 instance
+  hosts: localhost
+  tasks:
+  ec2:
+    key_name: virginia_key
+    instance_type: t2.micro
+    image: ami-050157ce3930d8c8c
+    wait: yes
+    count: 3
+    region: eu-west-1
+    vpc_subnet_id: subnet-2089e97a
+    assign_public_ip: yes      

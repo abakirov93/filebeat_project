@@ -1,0 +1,11 @@
+---	
+- name: Playbook name
+  hosts: localhost
+  tasks:
+
+
+#- import_playbook: ec2_ireland.yaml
+#- import_playbook: ec2_london.yaml
+#- import_playbook: ec2_ohio.yaml
+- import_playbook: ec2_oregon.yaml
+#- import_playbook: ec2_virginia.yaml

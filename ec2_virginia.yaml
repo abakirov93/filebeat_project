@@ -1,0 +1,15 @@
+---   #sudo pip install boto
+- name: Creates ec2 instance
+  hosts: localhost
+  become: true
+  become_method: sudo
+  tasks:
+    - name: Create instances
+      ec2:
+        key_name: team4_key
+        instance_type: t2.medium
+        image: ami-07b02e2835b147cc5
+        count: 1
+        region: us-east-1
+        vpc_subnet_id: subnet-1fe46778
+        assign_public_ip: yes
